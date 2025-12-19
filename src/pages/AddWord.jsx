@@ -21,7 +21,7 @@ function AddWord(){
         }
             
         let wrd={id:Date.now(),...form,u_id:id}
-        await axios.post('http://localhost:4000/words',wrd)
+        await axios.post('https://vocabbackend-5h4t.onrender.com/words',wrd)
         setForm({word:"",Meaning:"",Example:""})
         setAd(true)
     }

@@ -14,12 +14,12 @@ function Progress() {
 
   const fetchProgress = async () => {
     const wordsRes = await axios.get(
-      `http://localhost:4000/words?u_id=${user.id}`
+      `https://vocabbackend-5h4t.onrender.com/words?u_id=${user.id}`
     );
     setTotalWords(wordsRes.data.length);
 
     const quizRes = await axios.get(
-      `http://localhost:4000/quizzes?u_id=${user.id}`
+      `https://vocabbackend-5h4t.onrender.com/quizzes?u_id=${user.id}`
     );
     setQuizCount(quizRes.data.length);
 

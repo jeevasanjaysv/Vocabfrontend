@@ -23,7 +23,7 @@ function Login(){
             alert("Please fill all fields")
             return
         }
-        const chk=await axios.get(`http://localhost:4000/users/byEmail?email=${Lform.email}`)
+        const chk=await axios.get(`https://vocabbackend-5h4t.onrender.com/users/byEmail?email=${Lform.email}`)
         if(chk.data.length==0){
             setNonExist(true)
             return 
@@ -32,7 +32,7 @@ function Login(){
         setNonExist(false)
 
         const u = await axios.get(
-            `http://localhost:4000/users?email=${Lform.email}&pass=${Lform.pass}`
+            `https://vocabbackend-5h4t.onrender.com/users?email=${Lform.email}&pass=${Lform.pass}`
         )
        
 

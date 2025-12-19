@@ -21,7 +21,7 @@ function Quiz() {
 
   const fetchWords = async () => {
     const res = await axios.get(
-      `http://localhost:4000/words?u_id=${user.id}`
+      `https://vocabbackend-5h4t.onrender.com/words?u_id=${user.id}`
     );
     setWords(shuffle(res.data).slice(0, 5));
   };
@@ -64,7 +64,7 @@ function Quiz() {
   }, [current, words]);
 
   const saveQuiz = async (updateScore) => {
-    await axios.post("http://localhost:4000/quizzes", {
+    await axios.post("https://vocabbackend-5h4t.onrender.com/quizzes", {
       id: Date.now(),
       u_id: user.id,
       Score: updateScore,

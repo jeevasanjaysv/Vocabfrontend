@@ -19,19 +19,19 @@ function VocabularyList(){
     },[])
 
     const fetch=async()=>{
-        const d=await axios.get(`http://localhost:4000/words?u_id=${id}`)
+        const d=await axios.get(`https://vocabbackend-5h4t.onrender.com/words?u_id=${id}`)
         setWrd(d.data)   
     }
       
     const deletes=async(Eid)=>{
-        await axios.delete(`http://localhost:4000/words/${Eid}`)
+        await axios.delete(`https://vocabbackend-5h4t.onrender.com/words/${Eid}`)
         fetch()
     }
 
     const Usub=async(e)=>{
         e.preventDefault();
         let uform={id:Date.now(),...form,u_id:id}
-        await axios.put(`http://localhost:4000/words/${up.Uid}`,uform)
+        await axios.put(`https://vocabbackend-5h4t.onrender.com/words/${up.Uid}`,uform)
         fetch()
         setUp({dis:false,Uid:""})
     }

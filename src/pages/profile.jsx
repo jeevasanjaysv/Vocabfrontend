@@ -17,7 +17,7 @@ function Profile() {
 
   const updateProfile = async () => {
     const res = await axios.put(
-      `http://localhost:4000/users/${storedUser.id}`,
+      `https://vocabbackend-5h4t.onrender.com/users/${storedUser.id}`,
       { ...storedUser, ...form }
     );
 

@@ -19,7 +19,7 @@ function Register(){
         e.preventDefault()
         let e_mail= form.email.trim()
         let chk= await axios.get(
-            `http://localhost:4000/users/byEmail?email=${e_mail}`
+            `https://vocabbackend-5h4t.onrender.com/users/byEmail?email=${e_mail}`
         )
 
         if (chk.data.length !== 0) {
@@ -29,7 +29,7 @@ function Register(){
 
         setIsExist(false)
         let u = { id: Date.now(), ...form }
-        await axios.post('http://localhost:4000/users', u)
+        await axios.post('https://vocabbackend-5h4t.onrender.com/users', u)
         setForm({ name: "", email: "", pass: "" })
         navigate("/")
     }
