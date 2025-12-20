@@ -1,6 +1,6 @@
 import { React } from "react"
 import { Link, useNavigate } from "react-router-dom"
-
+import logo from '../assets/Lixiphile.png'
 function Dashboard(){
     const user = JSON.parse(localStorage.getItem("user"))
     const navigate =useNavigate()
@@ -12,15 +12,40 @@ function Dashboard(){
 
     return(
     <>
-    <div className="min-h-screen bg-linear-to-br from-blue-100 via-white to-[#ae24f6]">
+    <div >
 
         {/* Header */}
         <div className="relative w-full">
+             <img
+                            src={logo}
+                            alt="App Logo"
+                            className="absolute left-3 sm:left-6
+                                       top-1/2 -translate-y-1/2
+                                       h-10 sm:h-14
+                                       w-auto object-contain"
+                        />
+
             <h1 className="italic flex justify-center items-center h-24 sm:h-28
-                           bg-linear-to-r from-[#ae24f6] to-[#641c93]
+                           bg-linear-to-r from-[#2563eb] to-[#1d4ed8]
                            text-white text-3xl sm:text-4xl font-bold tracking-wide shadow-lg">
                 Dashboard
+                <img
+                src={logo}
+                alt="App Logo"
+                className="absolute
+                           left-4
+                           top-3
+                           h-25 w-50
+                           
+                          
+                          
+                          "
+              />
+
+
             </h1>
+           
+
 
             {/* Nav */}
             <nav className="absolute -bottom-6 left-1/2 -translate-x-1/2
@@ -30,20 +55,22 @@ function Dashboard(){
                             flex flex-wrap justify-center gap-4 sm:gap-6
                             text-gray-800 font-medium">
                 
-                <Link className="hover:text-[#ae24f6]" to='/progress'>Progress</Link>
-                <Link to='/profile' className="hover:text-[#ae24f6]">Profile</Link>
+                <Link className="hover:text-[#2563eb]" to='/progress'>Progress</Link>
+                <Link to='/profile' className="hover:text-[#2563eb]">Profile</Link>
                 <button onClick={logout} className="hover:text-red-500 transition">
                     Logout
                 </button>
             </nav>
         </div>
+        
+        
 
         {/* Welcome Card */}
         <div className="max-w-5xl mx-auto mt-28 sm:mt-24
                         p-6 sm:p-10
                         bg-white rounded-3xl shadow-2xl
-                        border border-[#ae24f6]">
-            <h1 className="text-3xl sm:text-4xl font-semibold italic text-[#ae24f6] mb-4">
+                        border border-[#3b82f6]">
+            <h1 className="text-3xl sm:text-4xl font-semibold italic text-[#2563eb] mb-4">
                 Hello, {user.name} 👋  
             </h1>
 
@@ -60,7 +87,7 @@ function Dashboard(){
             <Link
                 to='/addword'
                 className="group w-40 sm:w-48 h-28 sm:h-32 rounded-3xl
-                           bg-linear-to-br from-blue-500 to-indigo-500
+                           bg-linear-to-br from-blue-500 to-blue-700
                            flex flex-col justify-center items-center
                            text-white text-xl sm:text-2xl font-semibold
                            shadow-xl hover:scale-105 transition-all">
@@ -71,7 +98,7 @@ function Dashboard(){
             <Link
                 to='/wordlist'
                 className="group w-40 sm:w-48 h-28 sm:h-32 rounded-3xl
-                           bg-linear-to-br from-green-500 to-emerald-500
+                           bg-linear-to-br from-emerald-500 to-emerald-700
                            flex flex-col justify-center items-center
                            text-white text-xl sm:text-2xl font-semibold
                            shadow-xl hover:scale-105 transition-all">
@@ -82,7 +109,7 @@ function Dashboard(){
             <Link
                 to='/quiz'
                 className="group w-40 sm:w-48 h-28 sm:h-32 rounded-3xl
-                           bg-linear-to-br from-purple-500 to-pink-500
+                           bg-linear-to-br from-sky-500 to-indigo-600
                            flex flex-col justify-center items-center
                            text-white text-xl sm:text-2xl font-semibold
                            shadow-xl hover:scale-105 transition-all">
@@ -90,7 +117,11 @@ function Dashboard(){
                 <span className="mt-2 group-hover:underline">Quiz</span>
             </Link>
 
+
+            
+
         </div>
+       
 
     </div>
     </>

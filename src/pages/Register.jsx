@@ -1,6 +1,8 @@
 import axios from "axios"
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import logo from '../assets/Lixiphile.png'
+
 
 function Register(){
     const [form,setForm]=useState({name:"",email:"",pass:""})
@@ -36,20 +38,31 @@ function Register(){
 
     return(
     <>
-    <div className="min-h-screen bg-linear-to-br from-blue-100 via-white to-[#ae24f6]">
+    <div >
 
-        <h1 className="flex justify-center items-center h-24
-                       bg-[#641c93] text-white text-3xl
+        {/* Header */}
+        <h1 className="flex justify-center items-center h-28
+                       bg-[#2563eb] text-white text-3xl
                        italic font-semibold shadow-lg">
             Registration
+            <img
+            src={logo}
+            alt="App Logo"
+            className="absolute
+                        left-4
+                        top-2
+                        h-25 w-60"
+            />
+
         </h1>
 
+        {/* Register Card */}
         <div className="flex justify-center mt-20">
             <form
                 onSubmit={sub}
                 className="flex flex-col bg-white
                            w-112.5 p-10
-                           border-2 border-[#ae24f6]
+                           border-2 border-[#3b82f6]
                            rounded-3xl shadow-2xl
                            space-y-6 text-xl"
             >
@@ -64,7 +77,7 @@ function Register(){
                     name="name"
                     onChange={change}
                     className="border-2 p-3 rounded-xl
-                               focus:outline-none focus:border-[#ae24f6]"
+                               focus:outline-none focus:border-[#2563eb]"
                 />
 
                 <input
@@ -73,7 +86,7 @@ function Register(){
                     name="email"
                     onChange={change}
                     className="border-2 p-3 rounded-xl
-                               focus:outline-none focus:border-[#ae24f6]"
+                               focus:outline-none focus:border-[#2563eb]"
                 />
 
                 {isExist && (
@@ -89,7 +102,7 @@ function Register(){
                     onChange={change}
                     type="password"
                     className="border-2 p-3 rounded-xl
-                               focus:outline-none focus:border-[#ae24f6]"
+                               focus:outline-none focus:border-[#2563eb]"
                 />
 
                 <button
@@ -97,7 +110,8 @@ function Register(){
                     className="mx-auto
                                border-2 border-black
                                px-8 py-2 rounded-3xl
-                               bg-[#ae24f6] hover:bg-amber-50
+                               bg-[#2563eb] text-white
+                               hover:bg-[#1d4ed8]
                                transition"
                 >
                     Register
@@ -105,11 +119,11 @@ function Register(){
             </form>
         </div>
 
-        
+        {/* Login redirect */}
         <div className="text-center mt-6">
             <button
                 onClick={()=>{navigate("/")}}
-                className="text-lg text-gray-600 hover:text-[#641c93] "
+                className="text-lg text-gray-600 hover:text-[#2563eb]"
             >
                 Already have an account? <span className="font-semibold">Login</span>
             </button>

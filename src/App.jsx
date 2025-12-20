@@ -9,9 +9,13 @@ import Protected from "./components/Protected";
 import Profile from "./pages/profile";
 import Progress from "./pages/Progress";
 import Quiz from "./pages/Quiz";
+import AnimatedBackground from "./components/AnimatedBackground";
+import Appname from "./components/Appname";
 function App(){
   return (
     <>
+    <AnimatedBackground/>
+   
     <Routes>
       <Route path="/" element={<Login/>}/>
 
@@ -33,9 +37,7 @@ function App(){
 
 
     </Routes>
-    <div>  </div>
 
-    <div>  </div>
     </>
   )
 }

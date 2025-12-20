@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import logo from '../assets/Lixiphile.png'
 
 function Progress() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -39,26 +40,34 @@ function Progress() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-100 via-white to-[#ae24f6]">
+    <div >
 
-     
-      <div className="relative h-24 bg-[#641c93] flex justify-center items-center shadow-lg">
+      {/* Header */}
+      <div className="relative h-24 bg-[#2563eb] flex justify-center items-center shadow-lg">
         <h1 className="text-3xl italic font-semibold text-white">
           Your Progress
+          <img
+            src={logo}
+            alt="App Logo"
+            className="absolute
+                      left-4
+                      bottom-2
+                      h-25 w-50"
+          />
         </h1>
 
-       
         <Link
-             to="/dashboard"
-              className="absolute left-6 bottom-4
-              bg-white text-[#641c93]
-               px-4 py-2 rounded-xl
-              border border-[#ae24f6]
-             shadow-md hover:bg-violet-200 transition">
-                    ← Back
+          to="/dashboard"
+          className="absolute left-6 bottom-2
+                     bg-white text-[#2563eb]
+                     px-4 py-2 rounded-xl
+                     border border-[#3b82f6]
+                     shadow-md hover:bg-blue-100 transition">
+          ← Back
         </Link>
       </div>
 
+      {/* Progress Card */}
       <div className="max-w-3xl mx-auto mt-20 p-10
                       bg-white rounded-3xl shadow-2xl">
 
@@ -77,8 +86,8 @@ function Progress() {
             </p>
           </div>
 
-          <div className="p-6 bg-green-100 rounded-2xl shadow-md">
-            <h3 className="text-xl font-semibold text-green-700">
+          <div className="p-6 bg-emerald-100 rounded-2xl shadow-md">
+            <h3 className="text-xl font-semibold text-emerald-700">
               Quizzes Taken
             </h3>
             <p className="text-3xl font-bold mt-2">
@@ -86,8 +95,8 @@ function Progress() {
             </p>
           </div>
 
-          <div className="p-6 bg-purple-100 rounded-2xl shadow-md">
-            <h3 className="text-xl font-semibold text-purple-700">
+          <div className="p-6 bg-blue-100 rounded-2xl shadow-md">
+            <h3 className="text-xl font-semibold text-blue-700">
               Average Score
             </h3>
             <p className="text-3xl font-bold mt-2">
@@ -97,7 +106,6 @@ function Progress() {
 
         </div>
 
-        
         <p className="text-center mt-10 text-lg text-gray-700">
           Keep practicing daily — your vocabulary power is growing 💪📘
         </p>

@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import React from "react"
 import { useNavigate, Link } from "react-router-dom"
+import logo from '../assets/Lixiphile.png'
 
 function Login(){
     const [Lform,setLForm]=useState({email:"",pass:""})
@@ -23,18 +24,21 @@ function Login(){
             alert("Please fill all fields")
             return
         }
-        const chk=await axios.get(`https://vocabbackend-5h4t.onrender.com/users/byEmail?email=${Lform.email}`)
+
+        const chk=await axios.get(
+            `https://vocabbackend-5h4t.onrender.com/users/byEmail?email=${Lform.email}`
+        )
+
         if(chk.data.length==0){
             setNonExist(true)
             return 
-
         }
+
         setNonExist(false)
 
         const u = await axios.get(
             `https://vocabbackend-5h4t.onrender.com/users?email=${Lform.email}&pass=${Lform.pass}`
         )
-       
 
         if(u.data.length>0){
             alert("Login Successfully")
@@ -47,28 +51,38 @@ function Login(){
 
     return(
     <>
-    <div className="min-h-screen bg-linear-to-br from-blue-100 via-white to-[#ae24f6]">
+    <div>
 
-        
-        <h1 className="flex justify-center items-center h-24
-                       bg-[#641c93] text-white text-3xl
+        {/* Header */}
+        <h1 className="flex justify-center items-center h-28
+                       bg-[#2563eb] text-white text-3xl
                        italic font-semibold shadow-lg">
             Login
+            <img
+            src={logo}
+            alt="App Logo"
+            className="absolute
+                        left-4
+                        top-3
+                        h-25 w-60"
+            />
+
         </h1>
 
-       
+
+        {/* Card */}
         <div className="flex justify-center mt-20">
             <form
                 onSubmit={sub}
                 className="flex flex-col bg-white
                            w-112.5 p-10
-                           border-2 border-[#ae24f6]
+                           border-2 border-[#3b82f6]
                            rounded-3xl shadow-2xl
                            space-y-6 text-xl"
             >
 
                 <p className="text-center italic text-gray-600">
-                    “Welcome ! Let’s continue your learning journey 📘”
+                    “Welcome! Let’s continue your learning journey 📘”
                 </p>
 
                 <input
@@ -77,14 +91,14 @@ function Login(){
                     name="email"
                     onChange={change}
                     className="border-2 p-3 rounded-xl
-                               focus:outline-none focus:border-[#ae24f6]"
+                               focus:outline-none focus:border-[#2563eb]"
                 />
-                {nonExist&& (
+
+                {nonExist && (
                     <p className="text-red-500 text-sm -mt-3">
                         Email not exists
                     </p>
                 )}
-
 
                 <input
                     placeholder="Password"
@@ -93,7 +107,7 @@ function Login(){
                     onChange={change}
                     type="password"
                     className="border-2 p-3 rounded-xl
-                               focus:outline-none focus:border-[#ae24f6]"
+                               focus:outline-none focus:border-[#2563eb]"
                 />
 
                 <button
@@ -101,7 +115,8 @@ function Login(){
                     className="mx-auto
                                border-2 border-black
                                px-8 py-2 rounded-3xl
-                               bg-[#641c93] hover:bg-amber-50
+                               bg-[#2563eb] text-white
+                               hover:bg-[#1d4ed8]
                                transition"
                 >
                     Login
@@ -109,10 +124,11 @@ function Login(){
             </form>
         </div>
 
+        {/* Register link */}
         <div className="text-center mt-6">
             <Link
                 to="/register"
-                className="text-lg text-gray-600 hover:text-[#ae24f6] "
+                className="text-lg text-gray-600 hover:text-[#2563eb]"
             >
                 Don’t have an account? <span className="font-semibold">Register</span>
             </Link>

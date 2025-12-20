@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import logo from '../assets/Lixiphile.png'
 
 function Quiz() {
   const [words, setWords] = useState([]);
@@ -79,21 +80,30 @@ function Quiz() {
 
   return (
     <>
-    <div className="min-h-screen bg-linear-to-br from-blue-100 via-white to-[#ae24f6]"> 
+    <div > 
 
       {/* Header */}
-      <div className="relative h-20 sm:h-24 bg-[#641c93] flex justify-center items-center shadow-lg">
+      <div className="relative h-20 sm:h-24 bg-[#2563eb] flex justify-center items-center shadow-lg">
         <h1 className="text-2xl sm:text-3xl italic font-semibold text-white">
           Vocabulary Quiz
+           <img
+            src={logo}
+            alt="App Logo"
+            className="absolute
+                      left-4
+                      bottom-2
+                      h-25 w-60"
+          />
+
         </h1>
 
         <Link
           to="/dashboard"
-          className="absolute left-4 sm:left-6 bottom-3 sm:bottom-4
-                     bg-white text-[#641c93]
+          className="absolute left-4 sm:left-6 bottom-3 sm:bottom-2
+                     bg-white text-[#2563eb]
                      px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl
-                     border border-[#ae24f6]
-                     shadow-md hover:bg-violet-200 transition">
+                     border border-[#3b82f6]
+                     shadow-md hover:bg-blue-100 transition">
           ← Back
         </Link>
       </div>
@@ -143,8 +153,9 @@ function Quiz() {
                 <Link
                   to="/wordlist"
                   className="inline-block mt-4 px-6 py-2 rounded-2xl
-                             bg-[#641c93] border-2 border-black
-                             hover:bg-amber-50 transition">
+                             bg-[#2563eb] text-white
+                             border-2 border-black
+                             hover:bg-[#1d4ed8] transition">
                   Word List
                 </Link>
               </div>
@@ -153,8 +164,9 @@ function Quiz() {
             <button
               onClick={() => navigate("/dashboard")}
               className="mt-6 px-6 py-2 rounded-2xl
-                         bg-[#641c93] border-2 border-black
-                         hover:bg-amber-50 transition">
+                         bg-[#2563eb] text-white
+                         border-2 border-black
+                         hover:bg-[#1d4ed8] transition">
               Back to Dashboard
             </button>
           </div>
@@ -166,7 +178,7 @@ function Quiz() {
 
             <h2 className="text-lg sm:text-2xl font-semibold">
               What is the meaning of
-              <span className="text-[#641c93]"> "{words[current].word}"</span>?
+              <span className="text-[#2563eb]"> "{words[current].word}"</span>?
             </h2>
 
             <div className="space-y-3">
@@ -176,7 +188,7 @@ function Quiz() {
                   className={`flex items-center gap-3 p-3 rounded-xl
                               border cursor-pointer
                               ${selected === opt
-                                ? "bg-violet-200 border-[#ae24f6]"
+                                ? "bg-blue-100 border-[#2563eb]"
                                 : "hover:bg-gray-100"}`}
                 >
                   <input
@@ -196,7 +208,7 @@ function Quiz() {
               onClick={nextQuestion}
               className={`mt-4 px-5 sm:px-6 py-2 rounded-2xl border-2 border-black
                 ${selected
-                  ? "bg-[#641c93] hover:bg-amber-50"
+                  ? "bg-[#2563eb] text-white hover:bg-[#1d4ed8]"
                   : "bg-gray-300 cursor-not-allowed"}`}
             >
               Next

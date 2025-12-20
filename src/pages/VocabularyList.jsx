@@ -1,6 +1,7 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import logo from '../assets/Lixiphile.png'
 
 function VocabularyList(){
     const [wrd,setWrd]=useState([])
@@ -38,21 +39,40 @@ function VocabularyList(){
 
     return(
         <>
-        <div className="min-h-screen bg-linear-to-br from-blue-100 via-white to-[#ae24f6]">
+        <div >
 
             {/* Header */}
-            <div className="relative h-20 sm:h-24 bg-[#641c93] flex justify-center items-center shadow-lg">
+            <div className="relative sm:h-24 bg-[#2563eb] flex justify-center items-center shadow-lg  ">
+                 <img
+                                src={logo}
+                                alt="App Logo"
+                                className="absolute left-3 sm:left-6
+                                           top-1/2 -translate-y-1/2
+                                           h-10 sm:h-14
+                                           w-auto object-contain"
+                            />
+                
                 <h1 className="text-2xl sm:text-3xl italic font-semibold text-white">
                     Word List
+                     <img
+                        src={logo}
+                        alt="App Logo"
+                        className="absolute
+                                    left-4
+                                    bottom-2
+                                    h-25 w-50 "
+                        />
+
+
                 </h1>
 
                 <Link
                    to="/dashboard"
-                   className="absolute left-4 sm:left-6 bottom-3 sm:bottom-4
-                              bg-white text-[#641c93]
+                   className="absolute left-4 sm:left-6 bottom-3 sm:bottom-2
+                              bg-white text-[#2563eb]
                               px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl
-                              border border-[#ae24f6]
-                              shadow-md hover:bg-violet-200 transition">
+                              border border-[#3b82f6]
+                              shadow-md hover:bg-blue-100 transition">
                     ← Back
                 </Link>
             </div>
@@ -68,8 +88,8 @@ function VocabularyList(){
                     placeholder="Search"
                     onChange={(e)=>{setSearch(e.target.value)}}
                     className="w-full border-2 p-2 rounded-lg
-                               focus:outline-none focus:border-[#ae24f6]
-                               hover:bg-violet-100"
+                               focus:outline-none focus:border-[#2563eb]
+                               hover:bg-blue-100"
                 />
             </div>
 
@@ -86,28 +106,32 @@ function VocabularyList(){
                         value={form.word}
                         name="word"
                         onChange={Uchange}
-                        className="w-full border-2 p-2 rounded-lg"
+                        className="w-full border-2 p-2 rounded-lg
+                                   focus:border-[#2563eb] focus:outline-none"
                     />
                     <input
                         placeholder="Meaning"
                         value={form.Meaning}
                         name="Meaning"
                         onChange={Uchange}
-                        className="w-full border-2 p-2 rounded-lg"
+                        className="w-full border-2 p-2 rounded-lg
+                                   focus:border-[#2563eb] focus:outline-none"
                     />
                     <textarea
                         placeholder="Example"
                         value={form.Example}
                         name="Example"
                         onChange={Uchange}
-                        className="w-full border-2 p-2 rounded-lg"
+                        className="w-full border-2 p-2 rounded-lg
+                                   focus:border-[#2563eb] focus:outline-none"
                     />
                     <button
                         type="submit"
                         className="block mx-auto
                                    px-6 sm:px-8 py-2 rounded-3xl
-                                   bg-blue-400 border-2 border-black
-                                   hover:bg-amber-50 transition"
+                                   bg-[#2563eb] text-white
+                                   border-2 border-black
+                                   hover:bg-[#1d4ed8] transition"
                     >
                         Update
                     </button>
@@ -148,8 +172,8 @@ function VocabularyList(){
                                     setForm({word:e.word,Meaning:e.Meaning,Example:e.Example})
                                 }}
                                 className="px-3 py-1 rounded-lg
-                                           bg-[#641c93] text-white
-                                           hover:bg-[#ae24f6] transition"
+                                           bg-[#2563eb] text-white
+                                           hover:bg-[#1d4ed8] transition"
                             >
                                 Edit
                             </button>

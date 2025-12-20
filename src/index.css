@@ -1,1 +1,57 @@
 @import "tailwindcss";
+
+
+
+.wr {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+
+  /* darker, richer blue gradient */
+  background: linear-gradient(
+    120deg,
+    #1e3a8a 0%,   /* blue-800 */
+    #1e40af 35%,  /* blue-700 */
+    #312e81 70%,  /* indigo-900 */
+    #020617 100%  /* almost black */
+  );
+}
+
+.wr .box {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+
+  /* darker + more visible boxes */
+  background: rgba(96, 165, 250, 0.85); /* blue-400 */
+  border-radius: 8px;
+
+  /* subtle glow so motion stands out */
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.6);
+
+  animation: animate 7s linear infinite;
+}
+
+/* positions unchanged */
+.wr .box:nth-child(1) { top: 12%; left: 18%; }
+.wr .box:nth-child(2) { top: 40%; left: 72%; }
+.wr .box:nth-child(3) { top: 65%; left: 30%; }
+.wr .box:nth-child(4) { top: 80%; left: 55%; }
+.wr .box:nth-child(5) { top: 25%; left: 85%; }
+.wr .box:nth-child(6) { top: 55%; left: 10%; }
+.wr .box:nth-child(7) { top: 5%;  left: 45%; }
+.wr .box:nth-child(8) { top: 90%; left: 75%; }
+.wr .box:nth-child(9) { top: 35%; left: 5%; }
+.wr .box:nth-child(10){ top: 70%; left: 90%; }
+
+@keyframes animate {
+  0% {
+    transform: scale(0.6) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.8) translateY(-140px) rotate(360deg);
+    opacity: 0;
+  }
+}
